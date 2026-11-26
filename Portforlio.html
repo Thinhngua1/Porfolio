@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Xuân Thịnh | Electrical & Automation Engineer Portfolio</title>
+  <meta name="description" content="Portfolio của Nguyễn Xuân Thịnh - Kỹ sư Điện Tự động hóa & Cơ điện tử (PLC, Robot, Machine Vision, PC Control, SCADA)." />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #0369a1;
+      --primary-hover: #075985;
+      --primary-soft: #e0f2fe;
+      --border: #e2e8f0;
+      --header-bg: #0f172a;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* Language switching */
+    body.lang-vi .en { display: none !important; }
+    body.lang-en .vi { display: none !important; }
+
+    /* Top Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .topbar-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-lang, .btn-print {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-lang:hover, .btn-print:hover {
+      background: #0284c7;
+      border-color: #0284c7;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0c4a6e 100%);
+      color: #ffffff;
+      padding: 46px 20px 42px;
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: #bae6fd;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .hero-summary {
+      max-width: 780px;
+      color: #cbd5e1;
+      font-size: 14.8px;
+      margin-bottom: 22px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 13.8px;
+      color: #e2e8f0;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+
+    .contact-item:hover {
+      color: #38bdf8;
+    }
+
+    .icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    section {
+      margin-bottom: 36px;
+      scroll-margin-top: 72px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-company {
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exp-role {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 2px;
+    }
+
+    .exp-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #f1f5f9;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    /* Sub-blocks inside Dreamtech */
+    .sub-block {
+      margin-top: 16px;
+      padding-left: 14px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .sub-block:first-of-type {
+      margin-top: 6px;
+    }
+
+    .sub-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    ul.clean-list {
+      padding-left: 18px;
+      color: #334155;
+    }
+
+    ul.clean-list li {
+      margin-bottom: 6px;
+    }
+
+    ul.clean-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Evidence Buttons */
+    .evidence-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 12.5px;
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 3px 9px;
+      border-radius: 5px;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Education & Credentials Grid */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+    }
+
+    .cred-box h3 {
+      font-size: 15.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .highlight-metric {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 2px 8px;
+      border-radius: 5px;
+      margin-left: 4px;
+    }
+
+    /* Documents / Evidence Hub */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .doc-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .doc-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .doc-card-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .doc-card-desc {
+      font-size: 12.8px;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+      background: var(--surface);
+    }
+
+    /* Print / Export PDF Styling */
+    @media print {
+      .topbar, .btn-print, .btn-lang { display: none !important; }
+      body { background: #ffffff; font-size: 13px; }
+      .hero { background: #0f172a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 24px 20px; }
+      .card, .skill-card, .doc-card { box-shadow: none; break-inside: avoid; }
+      .container { padding: 18px 0; }
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 26px; }
+      .card { padding: 18px 16px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body class="lang-vi">
+
+  <!-- Topbar -->
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="#" class="brand">XUAN THINH <span>// AUTOMATION</span></a>
+      <div class="nav-links">
+        <a href="#experience"><span class="vi">Kinh nghiệm & Dự án</span><span class="en">Experience & Projects</span></a>
+        <a href="#skills"><span class="vi">Kỹ năng</span><span class="en">Skills</span></a>
+        <a href="#education"><span class="vi">Học vấn & Chứng chỉ</span><span class="en">Education</span></a>
+        <a href="#evidence"><span class="vi">Minh chứng</span><span class="en">Evidence</span></a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-lang" id="langToggle" onclick="toggleLang()">EN / VI</button>
+        <button class="btn-print" onclick="window.print()">
+          <span class="vi">In / PDF</span><span class="en">Print / PDF</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="vi">Electrical & Automation Portfolio</span>
+        <span class="en">Electrical & Automation Portfolio</span>
+      </div>
+      <h1>Nguyễn Xuân Thịnh</h1>
+      <div class="hero-subtitle">
+        <span class="vi">Kỹ sư Điện – Tự động hóa & Cơ điện tử | PLC • Robot • Machine Vision • PC Control</span>
+        <span class="en">Electrical & Automation Engineer | PLC • Robotics • Machine Vision • PC Control</span>
+      </div>
+      <p class="hero-summary">
+        <span class="vi">
+          Kỹ sư Cơ điện tử (ĐH Bách khoa Hà Nội, CPA 3.65/4.0), có kinh nghiệm thực chiến về thiết kế mạch điện – khí nén, lập trình PLC/HMI, tích hợp Robot – Machine Vision, xử lý sự cố dây chuyền (Commissioning & Troubleshooting) và phát triển phần mềm PC Control/SCADA kết nối SQL Server/MES.
+        </span>
+        <span class="en">
+          Mechatronics Engineer (Hanoi University of Science and Technology, CPA 3.65/4.0) with hands-on experience in electrical & pneumatic design, PLC/HMI programming, Robot & Machine Vision integration, line Commissioning & Troubleshooting, and PC Control/SCADA software connected to SQL Server/MES.
+        </span>
+      </p>
+      <div class="contact-bar">
+        <span class="contact-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="vi">Bắc Ninh, Việt Nam</span><span class="en">Bac Ninh, Vietnam</span>
+        </span>
+        <span class="contact-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span class="vi">Thông tin liên hệ: Xem trong CV đính kèm</span><span class="en">Contact details: Available in attached CV</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Section 1: Experience & Projects -->
+    <section id="experience">
+      <h2 class="section-title">
+        <span class="vi">Kinh nghiệm & Dự án Thực tế</span>
+        <span class="en">Work Experience & Technical Projects</span>
+      </h2>
+
+      <!-- Dreamtech -->
+      <article class="card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">
+              <span class="vi">Công ty TNHH Dreamtech Việt Nam</span>
+              <span class="en">Dreamtech Vietnam Co., Ltd.</span>
+            </div>
+            <div class="exp-role">Automation Staff</div>
+          </div>
+          <span class="exp-date">
+            <span class="vi">08/2025 – Nay</span>
+            <span class="en">Aug 2025 – Present</span>
+          </span>
+        </div>
+
+        <!-- 1. Electrical & PLC -->
+        <div class="sub-block">
+          <div class="sub-title">
+            <span class="vi">1. Thiết kế điện – PLC</span>
+            <span class="en">1. Electrical Design & PLC Engineering</span>
+          </div>
+          <ul class="clean-list vi">
+            <li>Thiết kế mạch điện – khí nén (AutoCAD Electrical), đấu nối tủ điện và tích hợp đồng bộ hệ thống (PLC, Robot, Vision).</li>
+            <li>Trực tiếp debug, tinh chỉnh chương trình PLC và HMI (hệ Mitsubishi) giúp rút ngắn thời gian chu kỳ (Cycle Time) cho các cụm chuyển động tự động.</li>
+            <li>Tham gia lắp đặt, chạy thử nghiệm (Commissioning); phân tích nguyên nhân gốc và xử lý triệt để lỗi cảm biến khí nén/chân không mất ổn định gây dập sản phẩm.</li>
+            <li>Biên soạn tài liệu hướng dẫn vận hành (SOP) và đào tạo trực tiếp cho người vận hành.</li>
+          </ul>
+          <ul class="clean-list en">
+            <li>Designed electrical and pneumatic schematics (AutoCAD Electrical), executed control cabinet wiring, and integrated PLC, Robot, and Vision systems.</li>
+            <li>Debugged and tuned Mitsubishi PLC and HMI programs to optimize Cycle Time across automated motion assemblies.</li>
+            <li>Supported equipment setup and commissioning; performed root-cause troubleshooting to resolve unstable pneumatic/vacuum sensor issues causing part crushing defects.</li>
+            <li>Authored Standard Operating Procedures (SOPs) and trained production operators.</li>
+          </ul>
+          <div class="evidence-row">
+            <!-- Mẹo: Sau này bạn có thể thay link bit.ly bằng file trong chính GitHub repo, ví dụ href="docs/plc-sop.pdf" -->
+            <a class="btn-link" href="https://bit.ly/4AD8CkV" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span class="vi">Minh chứng Thiết kế Điện – PLC & SOP</span>
+              <span class="en">View Electrical / PLC & SOP Evidence</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. PC Control -->
+        <div class="sub-block">
+          <div class="sub-title">
+            <span class="vi">2. Phát triển PC Control & Giao tiếp Robot, Vision công nghiệp</span>
+            <span class="en">2. PC Control, Robot & Industrial Vision Communication</span>
+          </div>
+          <ul class="clean-list vi">
+            <li>Thiết kế và triển khai phần mềm PC (Python, kiến trúc OOP) giao tiếp với Robot (Dobot MG400) qua giao thức Socket TCP/IP, phục vụ giám sát và thu thập dữ liệu vận hành.</li>
+            <li>Xử lý dữ liệu tại biên (Edge processing), giảm tải lưu lượng trước khi đẩy lên SQL Server và hệ thống MES của công ty.</li>
+            <li>Phát triển các công cụ tự động hóa thao tác với thiết bị (tự động xử lý ảnh, xuất dữ liệu sản xuất).</li>
+          </ul>
+          <ul class="clean-list en">
+            <li>Designed and deployed Python PC applications (OOP architecture) communicating with Dobot MG400 robots via Socket TCP/IP for real-time monitoring and data acquisition.</li>
+            <li>Implemented edge data preprocessing to reduce payload volume before pushing records to SQL Server and the factory MES.</li>
+            <li>Built automation utilities for equipment operations, including automated image processing and production data export.</li>
+          </ul>
+          <div class="evidence-row">
+            <a class="btn-link" href="https://bit.ly/48BV25u" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span class="vi">Minh chứng PC Control & Robot TCP/IP</span>
+              <span class="en">View PC Control & Robot Demo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Machine Vision -->
+        <div class="sub-block">
+          <div class="sub-title">
+            <span class="vi">3. Thị giác máy (Machine Vision)</span>
+            <span class="en">3. Industrial Machine Vision</span>
+          </div>
+          <ul class="clean-list vi">
+            <li>Hiệu chuẩn, cấu hình thông số và tối ưu hóa hệ thống Vision công nghiệp phục vụ kiểm tra ngoại quan và định vị sản phẩm trên dây chuyền.</li>
+          </ul>
+          <ul class="clean-list en">
+            <li>Calibrated, configured, and tuned industrial machine vision systems for visual inspection and product alignment on production lines.</li>
+          </ul>
+        </div>
+
+        <!-- 4. Vendor Coordination -->
+        <div class="sub-block">
+          <div class="sub-title">
+            <span class="vi">4. Phối hợp đối tác kỹ thuật làm máy tự động</span>
+            <span class="en">4. Vendor Technical Coordination & Machine Development</span>
+          </div>
+          <ul class="clean-list vi">
+            <li>Khảo sát công đoạn sản xuất, xây dựng Concept kỹ thuật và tính toán chỉ số hiệu quả đầu tư (ROI) cho các dự án máy tự động hóa mới.</li>
+            <li>Làm cầu nối kỹ thuật trực tiếp với các đơn vị giải pháp tự động hóa (Hamasho, Autotech...), thẩm định giải pháp điều khiển và tích hợp phần cứng – phần mềm trước khi triển khai.</li>
+            <li>Phối hợp kiểm thử thiết bị tự động hóa và hỗ trợ kỹ thuật cho nhà cung cấp xử lý lỗi truyền thông công nghiệp (RS-232 trên PLC Mitsubishi chuyển đổi từ Siemens).</li>
+          </ul>
+          <ul class="clean-list en">
+            <li>Surveyed manufacturing processes, drafted technical concepts, and calculated ROI for new automation machine investments.</li>
+            <li>Acted as the technical liaison with automation integrators (Hamasho, Autotech, etc.) to review control architecture and hardware–software integration prior to deployment.</li>
+            <li>Collaborated with vendors on equipment testing and troubleshooting industrial communication issues (resolving RS-232 communication on Mitsubishi PLC migrated from Siemens).</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Canon -->
+      <article class="card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">
+              <span class="vi">Công ty TNHH Canon Việt Nam</span>
+              <span class="en">Canon Vietnam Co., Ltd.</span>
+            </div>
+            <div class="exp-role">
+              <span class="vi">Thực tập sinh Kỹ thuật điện</span>
+              <span class="en">Electrical Engineering Intern</span>
+            </div>
+          </div>
+          <span class="exp-date">07/2024 – 09/2024</span>
+        </div>
+        <ul class="clean-list vi">
+          <li>Tham gia trực tiếp vào quy trình lắp đặt, đấu nối các thiết bị (PLC, cảm biến, công tắc...) vào tủ điện và dây chuyền sản xuất.</li>
+          <li>Hỗ trợ vận hành và bảo trì dây chuyền sản xuất.</li>
+        </ul>
+        <ul class="clean-list en">
+          <li>Directly participated in installing and wiring PLCs, sensors, switches, and field devices into electrical cabinets and assembly lines.</li>
+          <li>Assisted with daily production line operation and preventive maintenance.</li>
+        </ul>
+      </article>
+
+      <!-- VIMESLAB -->
+      <article class="card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">
+              <span class="vi">Đại học Bách khoa Hà Nội — VIMESLAB</span>
+              <span class="en">Hanoi University of Science and Technology — VIMESLAB</span>
+            </div>
+            <div class="exp-role">
+              <span class="vi">Nghiên cứu khoa học & Mô phỏng hệ thống tự động</span>
+              <span class="en">Undergraduate Researcher — Automation & Virtual Commissioning</span>
+            </div>
+          </div>
+          <span class="exp-date">2023 – 2025</span>
+        </div>
+        <ul class="clean-list vi">
+          <li><strong>Thiết kế 3D:</strong> Sử dụng SolidWorks, Siemens NX thiết kế mô hình hệ thống phân loại sản phẩm và hệ thống đóng gói để mô phỏng kiểm nghiệm tính chính xác của chương trình điều khiển.</li>
+          <li><strong>Thiết kế Điện, Khí nén – Thủy lực:</strong> Sử dụng AutoCAD Electrical, Automation Studio thiết kế sơ đồ mạch; tham gia training thiết kế điện – khí nén cho dự án trong lab.</li>
+          <li><strong>Lập trình PLC & Virtual Commissioning:</strong> Lập trình PLC trên TIA Portal (Siemens) và GX Works (Mitsubishi); kiểm nghiệm ảo trên môi trường Siemens NX MCD cho hệ thống phân loại sản phẩm và đóng gói thực phẩm.</li>
+        </ul>
+        <ul class="clean-list en">
+          <li><strong>3D CAD Modeling:</strong> Modeled product sorting and food packaging systems in SolidWorks and Siemens NX for control logic validation.</li>
+          <li><strong>Electrical & Pneumatic Design:</strong> Created electrical and pneumatic-hydraulic schematics using AutoCAD Electrical and Automation Studio; participated in lab electrical-pneumatic design training.</li>
+          <li><strong>PLC & Virtual Commissioning:</strong> Programmed Siemens (TIA Portal) and Mitsubishi (GX Works) PLCs and validated full machine cycles via Virtual Commissioning in Siemens NX MCD.</li>
+        </ul>
+        <div class="evidence-row">
+          <a class="btn-link" href="https://drive.google.com/drive/folders/1Lz6iLENlwb3VoQbLgC6ychqADb2mdybK?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span class="vi">Minh chứng Mô phỏng & VIMESLAB</span>
+            <span class="en">View Simulation & VIMESLAB Projects</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Section 2: Technical Skills -->
+    <section id="skills">
+      <h2 class="section-title">
+        <span class="vi">Kỹ năng Chuyên môn</span>
+        <span class="en">Technical Skills</span>
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>
+            <span class="vi">PLC, Motion & Thiết kế điện</span>
+            <span class="en">PLC, Motion & Electrical</span>
+          </h3>
+          <div class="tags">
+            <span class="tag">Mitsubishi (GX Works)</span>
+            <span class="tag">Siemens (TIA Portal)</span>
+            <span class="tag">LS (XG5000)</span>
+            <span class="tag">Panasonic (FPWIN)</span>
+            <span class="tag">HMI</span>
+            <span class="tag">Sensors</span>
+            <span class="tag">AutoCAD Electrical</span>
+            <span class="tag">Automation Studio</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>
+            <span class="vi">Robot & Thị giác máy</span>
+            <span class="en">Robotics & Machine Vision</span>
+          </h3>
+          <div class="tags">
+            <span class="tag">Dobot MG400</span>
+            <span class="tag">Yamaha Robot</span>
+            <span class="tag">Industrial Vision Setup</span>
+            <span class="tag">Vision Calibration</span>
+            <span class="tag">OpenCV</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>
+            <span class="vi">PC Control, SCADA & Mạng</span>
+            <span class="en">PC Control, SCADA & Networks</span>
+          </h3>
+          <div class="tags">
+            <span class="tag">Python (OOP)</span>
+            <span class="tag">C# (.NET)</span>
+            <span class="tag">Socket TCP/IP</span>
+            <span class="tag">Modbus</span>
+            <span class="tag">RS-232 / RS-485</span>
+            <span class="tag">SQL Server / MES</span>
+            <span class="tag">Edge Processing</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>
+            <span class="vi">Vận hành & Mô phỏng</span>
+            <span class="en">Commissioning & Simulation</span>
+          </h3>
+          <div class="tags">
+            <span class="tag">Commissioning</span>
+            <span class="tag">Troubleshooting</span>
+            <span class="tag">Cycle Time Tuning</span>
+            <span class="tag">SOP & Training</span>
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Siemens NX MCD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Education, Awards & Languages -->
+    <section id="education">
+      <h2 class="section-title">
+        <span class="vi">Học vấn, Giải thưởng & Ngoại ngữ</span>
+        <span class="en">Education, Honors & Languages</span>
+      </h2>
+
+      <div class="two-col">
+        <div class="card cred-box">
+          <h3>
+            <span class="vi">Đại học Bách khoa Hà Nội (HUST)</span>
+            <span class="en">Hanoi University of Science and Technology (HUST)</span>
+          </h3>
+          <ul class="clean-list vi">
+            <li>
+              <strong>Kỹ sư Cơ điện tử (2021 – 2025)</strong>
+              <span class="highlight-metric">CPA 3.65 / 4.0</span>
+              <br />Đạt điểm A, A+ các môn cốt lõi: Kỹ thuật lập trình Cơ điện tử, Vi xử lý, Kỹ thuật điện, Kỹ thuật điện tử, Robotics.
+            </li>
+            <li>
+              <strong>Học viên Cao học Kỹ thuật Cơ điện tử (2026 – Nay)</strong>
+              <br />Hướng nghiên cứu: Cyber-Physical Systems (CPS) & Edge AI ứng dụng cho bảo trì dự đoán.
+            </li>
+          </ul>
+          <ul class="clean-list en">
+            <li>
+              <strong>B.Eng. in Mechatronics (2021 – 2025)</strong>
+              <span class="highlight-metric">CPA 3.65 / 4.0</span>
+              <br />Grade A / A+ in core subjects: Mechatronics Programming, Microprocessors, Electrical Engineering, Electronics, Robotics.
+            </li>
+            <li>
+              <strong>M.Sc. Candidate in Mechatronics (2026 – Present)</strong>
+              <br />Research focus: Cyber-Physical Systems (CPS) & Edge AI for predictive maintenance.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card cred-box">
+          <h3>
+            <span class="vi">Danh hiệu, Giải thưởng & Ngoại ngữ</span>
+            <span class="en">Awards & Languages</span>
+          </h3>
+          <ul class="clean-list vi">
+            <li><strong>Học bổng:</strong> 5 kỳ Học bổng Khuyến khích Học tập (20221, 20222, 20231, 20232, 20241).</li>
+            <li><strong>Nghiên cứu khoa học:</strong> Tham gia cuộc thi Sinh viên Nghiên cứu Khoa học lần thứ 42.</li>
+            <li><strong>Tiếng Anh:</strong> Đọc tài liệu & giao tiếp kỹ thuật (VSTEP B1 – 02/2026; TOEIC 600 – 07/2024).</li>
+            <li><strong>Tiếng Trung:</strong> Đang học.</li>
+          </ul>
+          <ul class="clean-list en">
+            <li><strong>Scholarships:</strong> 5-time Academic Encouragement Scholarship recipient (Semesters 20221 – 20241).</li>
+            <li><strong>Research:</strong> Participant in the 42nd Student Scientific Research Competition.</li>
+            <li><strong>English:</strong> Technical documentation & workplace communication (VSTEP B1 – Feb 2026; TOEIC 600 – Jul 2024).</li>
+            <li><strong>Chinese:</strong> Currently studying.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Central Evidence Hub -->
+    <section id="evidence">
+      <h2 class="section-title">
+        <span class="vi">Kho Tài liệu & Minh chứng</span>
+        <span class="en">Documents & Evidence Hub</span>
+      </h2>
+      <div class="doc-grid">
+        <a class="doc-card" href="https://bit.ly/4AD8CkV" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">Thiết kế Điện – PLC & SOP</span>
+            <span class="en">Electrical / PLC & SOP</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">Bản vẽ, tài liệu vận hành & tối ưu máy tại Dreamtech</span>
+            <span class="en">Schematics, SOPs & cycle-time tuning at Dreamtech</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="https://bit.ly/48BV25u" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">PC Control & Robot TCP/IP</span>
+            <span class="en">PC Control & Robot TCP/IP</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">Demo phần mềm Python giao tiếp Robot & thu thập dữ liệu</span>
+            <span class="en">Python robot communication & data acquisition demo</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="https://drive.google.com/drive/folders/1Lz6iLENlwb3VoQbLgC6ychqADb2mdybK?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">Dự án Mô phỏng VIMESLAB</span>
+            <span class="en">VIMESLAB Simulation Projects</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">PLC Siemens/Mitsubishi & Virtual Commissioning NX MCD</span>
+            <span class="en">Siemens/Mitsubishi PLC & NX MCD Virtual Commissioning</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="http://bit.ly/46OurCk" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">Bảng điểm Đại học (HUST)</span>
+            <span class="en">Academic Transcript (HUST)</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">Cử nhân Cơ điện tử — CPA 3.65/4.0</span>
+            <span class="en">B.Eng. in Mechatronics — CPA 3.65/4.0</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="https://tinyurl.com/9976eft3" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">Học bổng & NCKH</span>
+            <span class="en">Scholarships & Research</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">5 kỳ học bổng KKHT & SVNCKH lần thứ 42</span>
+            <span class="en">5x Academic Scholarships & 42nd Student Research</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="http://bit.ly/3GII4Zf" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">Chứng chỉ Ngoại ngữ</span>
+            <span class="en">Language Certificates</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">VSTEP B1 (2026) & TOEIC 600 (2024)</span>
+            <span class="en">VSTEP B1 (2026) & TOEIC 600 (2024)</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="https://drive.google.com/drive/folders/1g82PeHp70eQ26tZ4NFJNNlWBW3BMF2Fw?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">IIoT & Truyền thông Công nghiệp</span>
+            <span class="en">IIoT & Industrial Communication</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">PLC tích hợp ESP32, MQTT (Mosquitto) & WebSocket</span>
+            <span class="en">PLC integrated with ESP32, MQTT (Mosquitto) & WebSocket</span>
+          </div>
+        </a>
+
+        <a class="doc-card" href="https://drive.google.com/drive/folders/1CEPdhCbk6hhxNO5W3QAOnmF80sDCWys6" target="_blank" rel="noopener noreferrer">
+          <div class="doc-card-title">
+            <span class="vi">Computer Vision (YOLO)</span>
+            <span class="en">Computer Vision (YOLO)</span>
+          </div>
+          <div class="doc-card-desc">
+            <span class="vi">PLC tích hợp xử lý ảnh phân loại sản phẩm ứng dụng YOLO</span>
+            <span class="en">PLC & YOLO-based vision integration for product sorting</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="vi">© 2026 Nguyễn Xuân Thịnh — Electrical & Automation Engineer Portfolio</span>
+    <span class="en">© 2026 Nguyen Xuan Thinh — Electrical & Automation Engineer Portfolio</span>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.classList.remove('lang-vi', 'lang-en');
+      document.body.classList.add(lang === 'en' ? 'lang-en' : 'lang-vi');
+      document.documentElement.lang = lang === 'en' ? 'en' : 'vi';
+      var btn = document.getElementById('langToggle');
+      if (btn) btn.textContent = lang === 'en' ? 'Tiếng Việt' : 'English';
+    }
+
+    function toggleLang() {
+      var isEn = document.body.classList.contains('lang-en');
+      setLang(isEn ? 'vi' : 'en');
+    }
+
+    // Hỗ trợ mở thẳng bản tiếng Anh bằng link dạng: https://<username>.github.io/?lang=en
+    (function initLang() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('lang') === 'en') {
+        setLang('en');
+      } else {
+        setLang('vi');
+      }
+    })();
+  </script>
+</body>
+</html>
